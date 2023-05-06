@@ -45,8 +45,8 @@ arm64:
 	@TARGETARCH=${ARCH}
 
 image:
-	sudo docker build . -t app:${TARGETOS}-${TARGETARCH} --build-arg TARGETOS=${TARGETOS} --build-arg TARGETARCH=${TARGETARCH} --build-arg APP_PFX=${APP_PFX}
+	docker build . -t app:${TARGETOS}-${TARGETARCH} --build-arg TARGETOS=${TARGETOS} --build-arg TARGETARCH=${TARGETARCH} --build-arg APP_PFX=${APP_PFX}
 
 clean:
 	rm -rf bin/*
-	- sudo docker rmi app:${TARGETOS}-${TARGETARCH}
+	- docker rmi app:${TARGETOS}-${TARGETARCH}
