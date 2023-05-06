@@ -3,7 +3,9 @@
 TARGETOS := linux
 TARGETARCH := amd64
 APP_PFX :=
-ARCH := $(word 2,$(MAKECMDGOALS))
+OSLIST := linux windows darwin macos
+ARCHLIST := arm arm64 amd64
+ARCH := $(firstword $(filter ${ARCHLIST},$(MAKECMDGOALS)))
 ifeq (${ARCH},)
 ARCH := ${TARGETARCH}
 endif
